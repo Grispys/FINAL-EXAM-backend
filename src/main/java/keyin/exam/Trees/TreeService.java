@@ -1,6 +1,8 @@
 package keyin.exam.Trees;
 
 
+import keyin.exam.BST.BinaryNode;
+import keyin.exam.BST.BinarySearchTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,21 +19,11 @@ public class TreeService {
         return (List<Tree>) treeRepository.findAll();
     }
 
-    public Tree findTreeById(long id) {
-        Optional<Tree> optionalTree = treeRepository.findById(id);
-
-        return optionalTree.orElse(null);
-    }
-
     public Tree createTree(Tree newTree) {
         return treeRepository.save(newTree);
     }
 
 
-    public Tree updateTree(long id, Tree updatedTree) {
-
-        return null;
-    }
 
     public Tree getTreeByName(String name) {
         return treeRepository.findByName(name);

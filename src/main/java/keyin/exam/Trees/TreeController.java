@@ -31,7 +31,7 @@ public class TreeController {
             bst.insert(values.get(i));
         }
 //        bst.preOrder(bst.root);
-        return bst.root;
+        return treeService.createTree(bst.root);
     }
 
 }

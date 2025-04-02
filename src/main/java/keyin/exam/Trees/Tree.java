@@ -14,8 +14,8 @@ public class Tree {
     @GeneratedValue(generator = "tree_sequence")
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private BinaryNode root;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private BinaryNode root;
 
     private String name;
 
@@ -23,8 +23,8 @@ public class Tree {
 
     }
 
-    public Tree(String name, BinaryNode root){
-        this.root = root;
+    public Tree(String name){
+//        this.root = root;
         this.name = name;
     }
 

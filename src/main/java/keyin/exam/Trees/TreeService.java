@@ -13,7 +13,6 @@ public class TreeService {
     private TreeRepository treeRepository;
 
 
-
     public List<Tree> findAllTrees() {
         return (List<Tree>) treeRepository.findAll();
     }
@@ -27,6 +26,7 @@ public class TreeService {
     public Tree createTree(Tree newTree) {
         return treeRepository.save(newTree);
     }
+
 
     public Tree updateTree(long id, Tree updatedTree) {
 

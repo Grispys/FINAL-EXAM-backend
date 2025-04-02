@@ -1,5 +1,6 @@
 package keyin.exam.Trees;
 
+import keyin.exam.BST.BinaryNode;
 import keyin.exam.BST.BinarySearchTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +25,13 @@ public class TreeController {
 //        return treeService.createTree(newTree);
 //    }
     @PostMapping("/trees/process-numbers")
-    public Tree createTreeWithArray(@RequestBody List<Integer> values){
+    public BinaryNode createTreeWithArray(@RequestBody List<Integer> values){
         BinarySearchTree bst = new BinarySearchTree();
         for(int i = 0; i< values.size() ; i++){
             bst.insert(values.get(i));
-
         }
-        bst.preOrder(bst.root);
-        return null;
+//        bst.preOrder(bst.root);
+        return bst.root;
     }
 
 }

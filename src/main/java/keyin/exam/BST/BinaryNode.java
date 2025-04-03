@@ -1,8 +1,8 @@
 package keyin.exam.BST;
 
 import jakarta.persistence.*;
-
 public class BinaryNode {
+
 
 
     private Long id;

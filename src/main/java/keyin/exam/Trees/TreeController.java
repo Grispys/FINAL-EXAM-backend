@@ -1,5 +1,8 @@
 package keyin.exam.Trees;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import keyin.exam.BST.BinaryNode;
 import keyin.exam.BST.BinarySearchTree;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +19,35 @@ public class TreeController {
 
     @GetMapping("/trees")
     public List<Tree> getAllTrees() {
+
         return treeService.findAllTrees();
     }
 
 
-//    @PostMapping(value = "/trees", consumes = {MediaType.APPLICATION_JSON_VALUE, "application/json;charset=UTF-8"})
-//    public Tree createTree(@RequestBody Tree newTree) {
-//        return treeService.createTree(newTree);
-//    }
+
+    @GetMapping("/trees/most-recent")
+    public JsonNode getRecentTrees() throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String stringToParse = treeService.getRecentTree().getName();
+        return objectMapper.readTree(stringToParse);
+    }
+
+
+
     @PostMapping("/trees/process-numbers")
-    public BinaryNode createTreeWithArray(@RequestBody List<Integer> values){
+    public Tree createTreeWithArray(@RequestBody List<Integer> values) throws JsonProcessingException {
         BinarySearchTree bst = new BinarySearchTree();
         for(int i = 0; i< values.size() ; i++){
             bst.insert(values.get(i));
         }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String treeJson = objectMapper.writeValueAsString(bst.root);
+        Tree binaryTree = new Tree(treeJson);
+
 //        bst.preOrder(bst.root);
-        return treeService.createTree(bst.root);
+//        return bst.root;
+        return treeService.createTree(binaryTree);
     }
 
 }

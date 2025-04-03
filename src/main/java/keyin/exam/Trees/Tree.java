@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import keyin.exam.BST.BinaryNode;
+import keyin.exam.BST.BinarySearchTree;
 
 import java.security.PrivateKey;
 
@@ -14,27 +15,24 @@ public class Tree {
     @GeneratedValue(generator = "tree_sequence")
     private long id;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private BinaryNode root;
 
-    private String name;
+    private String tree;
 
     public Tree(){
 
     }
 
     public Tree(String name){
-//        this.root = root;
-        this.name = name;
+        this.tree = name;
     }
 
 
     public String getName() {
-        return name;
+        return tree;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String tree) {
+        this.tree = tree;
     }
 
     public long getId() {

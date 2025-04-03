@@ -1,8 +1,9 @@
 package keyin.exam.Trees;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import keyin.exam.BST.BinaryNode;
-import keyin.exam.BST.BinarySearchTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,17 @@ public class TreeService {
         return (List<Tree>) treeRepository.findAll();
     }
 
-    public Tree createTree(Tree newTree) {
+    public Tree createTree(Tree newTree) throws JsonProcessingException {
+
+//        Tree BST = new Tree(newTree);
+
         return treeRepository.save(newTree);
     }
 
 
+    public Tree getRecentTree(){
+        return treeRepository.findTopByOrderByIdDesc();
+    }
 
     public Tree getTreeByName(String name) {
         return treeRepository.findByName(name);

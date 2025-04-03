@@ -32,8 +32,8 @@ public class TreeService {
         return treeRepository.findTopByOrderByIdDesc();
     }
 
-    public Tree getTreeByName(String name) {
-        return treeRepository.findByName(name);
+    public Tree getTreeByName(String tree) {
+        return treeRepository.findByTree(tree);
     }
     public Tree getTreeById(Long id){
         return treeRepository.findById(id).orElse(null);

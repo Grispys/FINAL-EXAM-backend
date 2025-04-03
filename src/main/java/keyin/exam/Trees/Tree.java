@@ -15,7 +15,7 @@ public class Tree {
     @GeneratedValue(generator = "tree_sequence")
     private long id;
 
-
+    @Column(columnDefinition = "TEXT")
     private String tree;
 
     public Tree(){

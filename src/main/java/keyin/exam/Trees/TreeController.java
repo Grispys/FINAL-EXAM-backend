@@ -44,9 +44,6 @@ public class TreeController {
         ObjectMapper objectMapper = new ObjectMapper();
         String treeJson = objectMapper.writeValueAsString(bst.root);
         Tree binaryTree = new Tree(treeJson);
-
-//        bst.preOrder(bst.root);
-//        return bst.root;
         return treeService.createTree(binaryTree);
     }
 

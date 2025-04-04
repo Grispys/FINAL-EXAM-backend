@@ -1,12 +1,11 @@
 package keyin.exam.Trees;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import keyin.exam.BST.BinaryNode;
-import keyin.exam.BST.BinarySearchTree;
+import org.hibernate.annotations.Type;
 
-import java.security.PrivateKey;
 
 @Entity
 public class Tree {
@@ -15,23 +14,24 @@ public class Tree {
     @GeneratedValue(generator = "tree_sequence")
     private long id;
 
-    @Column(columnDefinition = "TEXT")
-    private String tree;
+    @Type(JsonType.class)
+    @Column(columnDefinition = "json")
+    private BinaryNode tree;
 
     public Tree(){
 
     }
 
-    public Tree(String name){
+    public Tree(BinaryNode name){
         this.tree = name;
     }
 
 
-    public String getName() {
+    public BinaryNode getName() {
         return tree;
     }
 
-    public void setName(String tree) {
+    public void setName(BinaryNode tree) {
         this.tree = tree;
     }
 

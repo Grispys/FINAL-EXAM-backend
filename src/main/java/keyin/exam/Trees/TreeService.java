@@ -32,7 +32,7 @@ public class TreeService {
         return treeRepository.findTopByOrderByIdDesc();
     }
 
-    public Tree getTreeByName(String tree) {
+    public Tree getTreeByName(BinaryNode tree) {
         return treeRepository.findByTree(tree);
     }
     public Tree getTreeById(Long id){

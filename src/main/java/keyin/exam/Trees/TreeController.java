@@ -18,22 +18,16 @@ public class TreeController {
     @Autowired
     private TreeService treeService;
 
-//    @GetMapping("/trees/previous-trees")
-//    public JsonNode getAllTrees() throws JsonProcessingException{
-//        String stringToIndent = treeService.getRecentTree().getName();
-//
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-//        String indentedJson = objectMapper.writeValueAsString(stringToIndent);
-//
-//        return objectMapper.readTree(indentedJson);
-//    }
+    @GetMapping("/trees/previous-trees")
+    public List<Tree> getAllTrees() throws JsonProcessingException{
+       return treeService.findAllTrees();
+    }
 
 
 
     @GetMapping("/trees/most-recent")
     public BinaryNode getRecentTrees() throws JsonProcessingException {
-        return  treeService.getRecentTree().getName();
+        return treeService.getRecentTree().getName();
     }
 
 

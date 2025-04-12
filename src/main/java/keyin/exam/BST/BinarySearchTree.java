@@ -42,5 +42,9 @@ public class BinarySearchTree implements Serializable {
         return root.getRight().value;
     }
 
+    public int getLeft(){
+        return root.getLeft().value;
+    }
+
 }
 

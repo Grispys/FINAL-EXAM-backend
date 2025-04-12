@@ -7,6 +7,8 @@ import java.io.Serializable;
 public class BinarySearchTree implements Serializable {
 
 
+
+
     public BinaryNode root;
 
     public BinarySearchTree() {
@@ -30,6 +32,10 @@ public class BinarySearchTree implements Serializable {
 
     public void insert(int value) {
         root = insert(root, value);
+    }
+
+    public int getRoot() {
+        return root.value;
     }
 
 }

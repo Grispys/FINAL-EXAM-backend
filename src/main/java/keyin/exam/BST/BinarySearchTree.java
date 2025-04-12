@@ -15,7 +15,7 @@ public class BinarySearchTree implements Serializable {
         root = null;
     }
 
-
+// takes a value and sequentially inserts it into a tree dependent on the size of the number and previous numbers
     public BinaryNode insert(BinaryNode currentNode, int value) {
         if (currentNode == null) {
             BinaryNode newNode = new BinaryNode();

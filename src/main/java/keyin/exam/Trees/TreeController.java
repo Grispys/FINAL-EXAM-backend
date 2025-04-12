@@ -15,20 +15,21 @@ public class TreeController {
     @Autowired
     private TreeService treeService;
 
+//    the route that returns all trees in the database
     @GetMapping("/trees/previous-trees")
     public List<Tree> getAllTrees() throws JsonProcessingException{
        return treeService.findAllTrees();
     }
 
 
-
+// the route that shows the tree just submitted via frontend
     @GetMapping("/trees/most-recent")
     public BinaryNode getRecentTrees() throws JsonProcessingException {
         return treeService.getRecentTree().getName();
     }
 
 
-
+// the route that processes the int array that the frontend delivers
     @PostMapping("/trees/process-numbers")
     public Tree createTreeWithArray(@RequestBody List<Integer> values) throws JsonProcessingException {
         BinarySearchTree bst = new BinarySearchTree();
